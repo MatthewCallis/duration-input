@@ -170,6 +170,34 @@ describe "DurationInput", ->
     return
 
   describe '#numericOnly', ->
+    # Super Shitty Tests
+    it 'should allow 0 - 9 as valid input', ->
+      duration_input = new DurationInput(document.getElementById('input-1'), duration: 0)
+      output = document.querySelector('input.duration')
+      output.value.should.equal '0'
+
+      simulateKeyPress = (character_code) ->
+        event = document.createEvent('KeyboardEvent') or document.createEvent('HTMLEvents')
+        if event.initKeyboardEvent
+          event.initKeyboardEvent 'keydown', true, true, window, 0, 0, 0, 0, character_code, character_code
+        else
+          event.initKeyEvent 'keydown', true, true, window, 0, 0, 0, 0, character_code, 0
+        output.dispatchEvent(event)
+
+      simulateKeyPress(49, output)
+      output.value.should.equal '0'
+
+      simulateKeyPress(50, output)
+      output.value.should.equal '0'
+
+      simulateKeyPress(51, output)
+      output.value.should.equal '0'
+
+      simulateKeyPress(52, output)
+      output.value.should.equal '0'
+
+      return
+
     return
 
   describe '#merge', ->
