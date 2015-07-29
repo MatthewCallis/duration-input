@@ -47,11 +47,43 @@
         duration_input.settings.duration.should.equal(0);
         document.querySelector('.duration-container input').should.exist;
       });
+      it('should render', function() {
+        duration_input = new DurationInput(document.getElementById('input-1'));
+        duration_input.settings.duration.should.equal(0);
+        document.querySelector('.duration-container input').should.exist;
+      });
       it('should allow options', function() {
         duration_input = new DurationInput(document.getElementById('input-1'), {
           duration: 120
         });
         duration_input.settings.duration.should.equal(120);
+      });
+      it('should allow enabling allowFloats', function() {
+        var output;
+        duration_input = new DurationInput(document.getElementById('input-1'), {
+          duration: 90000,
+          allowFloats: true
+        });
+        output = document.querySelector('input.duration');
+        output.value.should.equal('1.0416666666666667');
+      });
+      it('should allow disabling allowFloats', function() {
+        var output;
+        duration_input = new DurationInput(document.getElementById('input-1'), {
+          duration: 90000,
+          allowFloats: false
+        });
+        output = document.querySelector('input.duration');
+        output.value.should.equal('1');
+      });
+      it('should allow setting required', function() {
+        var output;
+        duration_input = new DurationInput(document.getElementById('input-1'), {
+          duration: 90000,
+          required: true
+        });
+        output = document.querySelector('input.duration');
+        output.getAttribute('data-msg').should.equal(duration_input.settings.required_text);
       });
       it('should fire events on initilization', function() {
         duration_input = new DurationInput(document.getElementById('input-1'));
@@ -91,7 +123,9 @@
         seconds = duration_input.toSeconds(4, 3, 2, 1);
         seconds.should.equal(356521);
         seconds = duration_input.toSeconds(2);
-        return seconds.should.equal(172800);
+        seconds.should.equal(172800);
+        seconds = duration_input.toSeconds();
+        seconds.should.equal(0);
       });
     });
     describe('#triggerEvents', function() {
@@ -126,6 +160,7 @@
         input_events.removeEventListener('flap', events_flap_spy);
       });
     });
+    describe('#numericOnly', function() {});
     describe('#merge', function() {
       it('should merge objects', function() {
         var defaults, options, output;

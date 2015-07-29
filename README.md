@@ -6,10 +6,6 @@
 [![Test Coverage](https://codeclimate.com/github/MatthewCallis/duration-input/badges/coverage.svg)](https://codeclimate.com/github/MatthewCallis/duration-input)
 [![Coverage Status](https://coveralls.io/repos/MatthewCallis/duration-input/badge.svg)](https://coveralls.io/r/MatthewCallis/duration-input)
 
-
-
-==============
-
 JavaScript library for managing duration based inputs.
 
 ### License

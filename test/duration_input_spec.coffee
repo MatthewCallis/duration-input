@@ -49,10 +49,40 @@ describe "DurationInput", ->
       document.querySelector('.duration-container input').should.exist
       return
 
+    it 'should render', ->
+      duration_input = new DurationInput(document.getElementById('input-1'))
+      duration_input.settings.duration.should.equal 0
+      document.querySelector('.duration-container input').should.exist
+      return
+
     it 'should allow options', ->
       duration_input = new DurationInput(document.getElementById('input-1'), duration: 120)
       duration_input.settings.duration.should.equal 120
       return
+
+    it 'should allow enabling allowFloats', ->
+      duration_input = new DurationInput(document.getElementById('input-1'), duration: 90000, allowFloats: true)
+      output = document.querySelector('input.duration')
+      output.value.should.equal '1.0416666666666667'
+      return
+
+    it 'should allow disabling allowFloats', ->
+      duration_input = new DurationInput(document.getElementById('input-1'), duration: 90000, allowFloats: false)
+      output = document.querySelector('input.duration')
+      output.value.should.equal '1'
+      return
+
+    it 'should allow setting required', ->
+      duration_input = new DurationInput(document.getElementById('input-1'), duration: 90000, required: true)
+      output = document.querySelector('input.duration')
+      output.getAttribute('data-msg').should.equal duration_input.settings.required_text
+      return
+
+    # it 'should hide the type select when there is only 1 type allowed', ->
+    #   duration_input = new DurationInput(document.getElementById('input-1'), duration: 120, allowedFields: ['immediately'])
+    #   output = document.querySelector('select.type')
+    #   output.style.display.should.equal 'none'
+    #   return
 
     it 'should fire events on initilization', ->
       duration_input = new DurationInput(document.getElementById('input-1'))
@@ -93,6 +123,9 @@ describe "DurationInput", ->
       seconds.should.equal 356521
       seconds = duration_input.toSeconds(2)
       seconds.should.equal 172800
+      seconds = duration_input.toSeconds()
+      seconds.should.equal 0
+      return
     return
 
   describe '#triggerEvents', ->
@@ -134,6 +167,9 @@ describe "DurationInput", ->
       input_events.removeEventListener('flap', events_flap_spy)
       return
 
+    return
+
+  describe '#numericOnly', ->
     return
 
   describe '#merge', ->
