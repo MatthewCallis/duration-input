@@ -1,0 +1,30 @@
+{
+  "name": "duration-input",
+  "version": "1.0.0",
+  "homepage": "https://github.com/MatthewCallis/duration-input",
+  "authors": [
+    "Matthew Callis <matthew.callis@gmail.com>"
+  ],
+  "description": "JavaScript library for managing duration based inputs.",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "duration",
+    "length",
+    "time",
+    "input"
+  ],
+  "license": "MIT",
+  "main": [
+    "./build/duration-input.js",
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
