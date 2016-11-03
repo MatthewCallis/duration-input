@@ -1,24 +1,18 @@
 language: node_js
 node_js:
-  - 0.12
-  - iojs
-before_install:
-  - npm conf set strict-ssl false
-after_install:
-  - sudo npm install -g phantomjs
+  - 6
+  - 7
 before_script:
-  - phantomjs --version
-  - npm install -g mocha
-  - npm install -g istanbul
-  - npm install -g codeclimate-test-reporter
   - npm install
 script:
-  - npm run instrument
-  - npm run test-phantomjs
-  - npm run coverage-report
-after_script:
-  - cat coverage/lcov.info | codeclimate
-  - cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - npm run make
+  - npm run test
+after_success:
+  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
+  - './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/codeclimate-test-reporter'
 branches:
   only:
     - master
+addons:
+  code_climate:
+      repo_token: 403060cc0759da8ecd18d93116ecb6c0973c45a0cd90beb0f9611be45d30e2c4

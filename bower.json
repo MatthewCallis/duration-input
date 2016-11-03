@@ -1,6 +1,6 @@
 {
   "name": "duration-input",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "homepage": "https://github.com/MatthewCallis/duration-input",
   "authors": [
     "Matthew Callis <matthew.callis@gmail.com>"
@@ -18,7 +18,7 @@
   ],
   "license": "MIT",
   "main": [
-    "./build/duration-input.js",
+    "./lib/duration-input.js",
   ],
   "ignore": [
     "**/.*",
