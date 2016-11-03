@@ -2,16 +2,15 @@
   "name": "duration-input",
   "version": "2.0.0",
   "description": "JavaScript library for managing duration based inputs.",
-  "author": "Matthew Callis <Matthew Callis>",
+  "author": "Matthew Callis <matthew.callis@gmail.com>",
   "contributors": [
     {
       "name": "Matthew Callis",
       "email": "matthew.callis@gmail.com"
     }
   ],
-  "main": [
-    "./lib/duration-input.js"
-  ],
+  "main": "lib/duration-input.js",
+  "files": ["lib/duration-input.js"],
   "repository": {
     "type": "git",
     "url": "https://github.com/MatthewCallis/duration-input"
@@ -24,6 +23,7 @@
     "input",
     "seconds"
   ],
+  "homepage": "https://github.com/MatthewCallis/duration-input",
   "dependencies": {},
   "devDependencies": {
     "ava": "^0.16.0",
@@ -70,6 +70,9 @@
     "validate": "npm ls"
   },
   "github": "https://github.com/MatthewCallis/duration-input",
+  "engines": {
+    "node": "^6.9.1"
+  },
   "pre-commit": [
     "make",
     "lint",
