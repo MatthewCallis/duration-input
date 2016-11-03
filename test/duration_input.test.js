@@ -1,7 +1,5 @@
 import test from 'ava';
 import sinon from 'sinon';
-import $ from 'jquery';
-
 import DurationInput from '../src/duration-input';
 
 let input;
@@ -340,9 +338,4 @@ test('#numericOnly: should allow 0 - 9 as valid input', (t) => {
   t.falsy(DurationInput.numericOnly({ which: 54 }));
   t.falsy(DurationInput.numericOnly({ which: 55 }));
   t.falsy(DurationInput.numericOnly({ which: 56 }));
-});
-
-test('jQuery Helper: should create a duration input with options', (t) => {
-  $('#input-1').durationInput({ duration: 0 });
-  t.is($('.duration-container input').val(), '0');
 });

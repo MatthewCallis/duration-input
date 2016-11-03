@@ -10,6 +10,8 @@ JavaScript library for managing duration based inputs.
 
 Useful if you need consumer friendly durations measured in seconds.
 
+The last version to support jQuery was `v2.0.0`.
+
 ### License
 
 Duration Input is [MIT licensed](./LICENSE).

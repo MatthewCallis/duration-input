@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 export default class DurationInput {
   constructor(element, options = {}) {
     if (!element) { return; }
@@ -167,16 +165,4 @@ export default class DurationInput {
     // Ensure that it is a number and stop the keypress.
     if ((e.shiftKey || (e.which < 48 || e.which > 57)) && (e.which < 96 || e.which > 105)) { e.preventDefault(); }
   }
-}
-
-/* istanbul ignore else */
-if (typeof $ !== 'undefined') {
-  $.fn.durationInput = function durationInput(options) {
-    this.each(function each() {
-      /* istanbul ignore else */
-      if (!$.data(this, 'plugin_durationInput') && !$(this).parent().hasClass('duration-container')) {
-        $.data(this, 'plugin_durationInput', new DurationInput(this, options));
-      }
-    });
-  };
 }
