@@ -1,0 +1,18 @@
+{
+  "source": "./src",
+  "destination": "./docs",
+  "access": ["public", "protected", "private"],
+  "autoPrivate": false,
+  "unexportIdentifier": true,
+  "undocumentIdentifier": false,
+  "coverage": true,
+  "includeSource": true,
+  "package": "./package.json",
+  "test": {
+    "type": "ava",
+    "source": "./spec"
+  },
+  "title": "DurationInput",
+  "lint": true,
+  "excludes": []
+}
