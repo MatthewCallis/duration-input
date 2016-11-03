@@ -8,6 +8,8 @@
 
 JavaScript library for managing duration based inputs.
 
+Useful if you need consumer friendly durations measured in seconds.
+
 ### License
 
 Duration Input is [MIT licensed](./LICENSE).
