@@ -30,7 +30,7 @@ export default class DurationInput {
 
     // Create the container.
     this.container = document.createElement('div');
-    this.container.classList.add(this.settings.classes.container);
+    this.container.className = this.settings.classes.container;
     this.element.parentNode.insertBefore(this.container, this.element.nextSibling);
 
     // Hide the input.
