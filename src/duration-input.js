@@ -42,7 +42,7 @@ export default class DurationInput {
     }
 
     // Set the value.
-    let value = this.element.value;
+    let { value } = this.element;
     try {
       value = parseInt(value, 10);
     } catch (_e) {}
@@ -127,7 +127,7 @@ export default class DurationInput {
       if (type.value === 'days') { new_d = duration.value; }
       if (type.value === 'hours') { new_h = duration.value; }
       if (type.value === 'minutes') { new_m = duration.value; }
-      if (type.value === 'immediately') { new_d = new_h = new_m = 0; }
+      if (type.value === 'immediately') { new_d = 0; new_h = 0; new_m = 0; }
       this.element.value = DurationInput.toSeconds(new_d, new_h, new_m, 0);
       DurationInput.triggerEvents(['input', 'change'], this.element);
     };

@@ -5,7 +5,7 @@ const json = require('rollup-plugin-json');
 const eslint = require('rollup-plugin-eslint');
 
 rollup({
-  entry: 'src/duration-input.js',
+  input: 'src/duration-input.js',
   plugins: [
     eslint(),
     json({
@@ -18,17 +18,14 @@ rollup({
       plugins: ['external-helpers'],
     }),
   ],
-})
-.then(bundle => (
+}).then(bundle => (
   bundle.write({
     format: 'iife', // amd, cjs, es, iife, umd
-    moduleName: 'DurationInput',
-    dest: 'lib/duration-input.js',
+    name: 'DurationInput',
+    file: 'lib/duration-input.js',
   })
-))
-.then(() => {
+)).then(() => {
   console.log('Bundle Created');
-})
-.catch((e) => {
+}).catch((e) => {
   console.error('Error:', e);
 });
