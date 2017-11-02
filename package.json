@@ -9,6 +9,13 @@
       "email": "matthew.callis@gmail.com"
     }
   ],
+  "maintainers": [
+    {
+      "name": "Matthew Callis",
+      "email": "matthew.callis@gmail.com"
+    }
+  ],
+  "module": "src/duration-input.js",
   "main": "lib/duration-input.js",
   "files": [
     "lib/duration-input.js"
@@ -17,6 +24,12 @@
     "type": "git",
     "url": "https://github.com/MatthewCallis/duration-input"
   },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/MatthewCallis/duration-input"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/MatthewCallis/duration-input/issues"
   },
@@ -58,6 +71,12 @@
   "preferGlobal": false,
   "private": false,
   "license": "MIT",
+  "licenses": [
+     {
+       "type": "MIT",
+       "url": "https://opensource.org/licenses/MIT"
+     }
+  ],
   "jam": {
     "dependencies": {}
   },
